@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark bg-faded">    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/A-64.png" width="30" height="30" alt="">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['home']">Home</a>
+        </li> 
+        <li *ngIf="estaAutenticado()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['heroes']">Heroes</a>
+        </li> 
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['about']">about</a>
+        </li> 
+        <li *ngIf="estaAutenticado()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['heroescrud']">Heroes CRUD</a>
+        </li> 
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+       <div *ngIf="estaAutenticado()">
+        <input class="form-control mr-sm-2" type="search"
+         placeholder="Search" aria-label="Search" #buscarTexto>
+        <button (click)="buscarHeroe(buscarTexto.value)" class="btn btn-outline-success my-2 my-sm-0" 
+        type="submit">Search</button>
+      </div>
+      <div *ngIf="!estaAutenticado()">
+        <button (click)="login()" class="btn btn-outline-primary my-2 my-sm-0" 
+        type="submit">Login</button>      
+        <button (click)="registro()" class="btn btn-outline-primary my-2 my-sm-0" 
+        type="submit">Registro</button>
+      </div>
+      <div *ngIf="estaAutenticado()">
+        <button (click)="logout()" class="btn btn-outline-primary my-2 my-sm-0" 
+        type="submit">Logout</button>   
+      </div>
+      </form>
+    </div>
+  </nav>
