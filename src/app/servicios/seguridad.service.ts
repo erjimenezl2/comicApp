@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators'
 export class SeguridadService {
 
   private url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty';
-  private apiKey = 'AIzaSyB1KoBnK1D16MX0JSZ6jirB3ctBy93zLRo';
+  private apiKey = '***********';
   tokenSeguridad: String;
 
   constructor(private http: HttpClient) {
